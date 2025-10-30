@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | Forex Wizard Association</title>
+  <link rel="stylesheet" href="contact.css" />
+</head>
+<body>
+
+  <!-- Navbar Load Container -->
+  <section class="navbar-section" id="navbar"></section>
+
+  <!-- Hero Section Load Container -->
+  <section id="hero-section"></section>
+
+  <!-- Main Page Content -->
+ 
+<section id="contact-section"></section>
+<section id="services-section"></section>
+<section id="partner-section"></section>
+<section id="about-section"></section>
+<section id="footer-section"></section>
+
+  <!-- JS Include -->
+  <script>
+    // Load navbar.html
+    fetch("navbar.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+      });
+
+    // Load hero.html
+    fetch("hero.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("hero-section").innerHTML = data;
+      });
+
+      // contact
+       fetch("contact.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("contact-section").innerHTML = data;
+      });
+       fetch("services.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("services-section").innerHTML = data;
+      });
+
+       fetch("partner.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("partner-section").innerHTML = data;
+      });
+
+      fetch("about.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("about-section").innerHTML = data;
+      });
+
+      fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer-section").innerHTML = data;
+      });
+
+  </script>
+</body>
+</html>

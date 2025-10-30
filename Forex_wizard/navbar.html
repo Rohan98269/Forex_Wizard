@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forex Wizard Association</title>
+  <link rel="stylesheet" href="navbar.css" />
+</head>
+<body>
+
+  <!-- 🌐 Navbar Section -->
+  <section class="navbar-section">
+    <nav class="navbar">
+      <div class="navbar-left">
+        <img src="logo.jpeg" alt="Logo" class="logo" />
+        <h1 class="site-title">
+          Forex Wizard <br />
+          <span class="association-text">Association</span>
+        </h1>
+      </div>
+
+      <div class="navbar-right">
+        <ul class="nav-links">
+          <li><a href="#hero-section" class="scroll-link">Home</a></li>
+          <li><a href="#services-section" class="scroll-link">Services</a></li>
+          <li><a href="#partner-section" class="scroll-link">Partner</a></li>
+          <li><a href="#about-section" class="scroll-link">About</a></li>
+          <li><a href="#contact-section" class="scroll-link">Contact</a></li>
+        </ul>
+        <button class="get-started-btn">Get Started</button>
+      </div>
+    </nav>
+  </section>
+
+  <!-- ✅ Smooth Scroll JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const scrollLinks = document.querySelectorAll(".scroll-link");
+
+      scrollLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute("href").substring(1);
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            window.scrollTo({
+              top: targetSection.offsetTop - 60, // adjust for navbar height
+              behavior: "smooth"
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

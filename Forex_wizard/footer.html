@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer - Forex Wizard Association</title>
+  <link rel="stylesheet" href="footer.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-container">
+
+      <!-- About -->
+      <div class="footer-about">
+        <div class="footer-logo">
+          <img src="logo.jpeg" alt="Forex Wizard Logo">
+          <div>
+            <h3>Forex Wizard</h3>
+            <span class="footer-brand">Association</span>
+          </div>
+        </div>
+        <p>
+          Professional trading community providing expert guidance, signals, and
+          education to traders worldwide. Managed by Parisa Thomas.
+        </p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/profile.php?id=61581463449991"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/Xauusd_Parisa"><i class="fab fa-twitter"></i></a>
+          <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
+          <a href="https://www.instagram.com/parisa_xauusd/"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#hero-section" class="scroll-link">Home</a></li>
+          <li><a href="#services-section" class="scroll-link">Services</a></li>
+          <li><a href="#partner-section" class="scroll-link">Partners</a></li>
+          <li><a href="#about-section" class="scroll-link">About</a></li>
+          <li><a href="#contact-section" class="scroll-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-links">
+        <h4>Our Services</h4>
+        <ul>
+          <li><a href="#">Trading Signals</a></li>
+          <li><a href="#">Personal Support</a></li>
+          <li><a href="#">Funded Accounts</a></li>
+          <li><a href="#">Trading BOT</a></li>
+          <li><a href="#">Live Webinars</a></li>
+          <li><a href="#">Trading Course</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><i class="fas fa-envelope"></i> forexshark3155@gmail.com</li>
+          <li><i class="fas fa-phone"></i> +61480838711</li>
+          <li><i class="fas fa-map-marker-alt"></i> Global Trading Community</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <hr class="footer-divider">
+
+    <div class="footer-bottom">
+      <p>© 2025 Forex Wizard Association. All rights reserved. Managed by Parisa Thomas.</p>
+      <div class="footer-policy">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Risk Disclosure</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Smooth Scroll Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const scrollLinks = document.querySelectorAll(".scroll-link");
+
+      scrollLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute("href").substring(1);
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            window.scrollTo({
+              top: targetSection.offsetTop,
+              behavior: "smooth"
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

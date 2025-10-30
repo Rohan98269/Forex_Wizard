@@ -1,0 +1,266 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f8fbff;
+  color: #1a1a1a;
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 80px 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Left Side */
+.contact-left {
+  flex: 1;
+  min-width: 280px;
+}
+
+.get-in-touch {
+  background: #e7edff;
+  color: #2457f5;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 25px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.contact-left h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #0d1b3d;
+}
+
+.highlight {
+  color: #2457f5;
+}
+
+.contact-left p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.manager {
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+}
+
+/* Info Boxes */
+.info-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #fff;
+  padding: 14px 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 15px;
+  border-left: 4px solid transparent;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.info-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.info-box i {
+  font-size: 1.4rem;
+  color: #2457f5;
+}
+
+.email-box {
+  border-left-color: #2457f5;
+}
+
+.call-box {
+  border-left-color: #00b36e;
+}
+
+.call-box i {
+  color: #00b36e;
+}
+
+.info-box h4 {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.info-box p {
+  font-size: 0.9rem;
+  color: #000;
+  font-weight: 500;
+}
+
+/* Bottom Icons */
+.bottom-icons {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.bottom-icons span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #00b36e;
+  font-size: 0.95rem;
+}
+
+/* Right Side (Form) */
+.contact-right {
+  flex: 1;
+  min-width: 280px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  padding: 35px 40px;
+  transition: transform 0.3s;
+}
+
+.contact-right:hover {
+  transform: translateY(-5px);
+}
+
+.contact-right form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-right label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.contact-right label i {
+  color: #2457f5;
+  margin-right: 6px;
+}
+
+.contact-right input,
+.contact-right select {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d0d4e4;
+  outline: none;
+  font-size: 0.95rem;
+  transition: 0.2s;
+}
+
+.contact-right input:focus,
+.contact-right select:focus {
+  border-color: #2457f5;
+  box-shadow: 0 0 0 2px rgba(36, 87, 245, 0.1);
+}
+
+/* Button */
+.send-btn {
+  background: #2457f5;
+  color: white;
+  border: none;
+  padding: 14px 0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.send-btn:hover {
+  background: #1e46cc;
+}
+
+.send-btn i {
+  margin-left: 8px;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .contact-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .contact-right,
+  .contact-left {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 50px 5%;
+  }
+
+  .contact-left h1 {
+    font-size: 2rem;
+  }
+
+  .contact-left p,
+  .manager {
+    font-size: 0.9rem;
+  }
+
+  .contact-right {
+    padding: 25px 20px;
+  }
+
+  .contact-right input,
+  .contact-right select {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .send-btn {
+    padding: 12px 0;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-left h1 {
+    font-size: 1.7rem;
+  }
+
+  .contact-left p,
+  .manager {
+    font-size: 0.85rem;
+  }
+
+  .info-box h4 {
+    font-size: 0.85rem;
+  }
+
+  .info-box p {
+    font-size: 0.8rem;
+  }
+
+  .bottom-icons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
