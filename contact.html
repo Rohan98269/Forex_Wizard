@@ -110,16 +110,22 @@ form.addEventListener("submit", async (e) => {
   messageBox.style.display = "none";
   messageBox.className = "message-box";
 
-  const formData = new URLSearchParams(new FormData(form)); // ✅ convert to URL-encoded form
+  const formData = new URLSearchParams(new FormData(form));
 
   try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbzQxL2tTTRxu0b2vH3tQikPj1_hbJ5jRrMRchGOtu73NK-ruZA9PQkl9rmihTSVhVfr6Q/exec", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: formData.toString()
-    });
+    const response = await fetch("https://script.google.com/macros/s/AKfycbyhaKFpTcH191kSlPwU9nN0hZ3vpbZYZg6KWoTt2MbZ4K49p5A672bUPYuBmctNSmbTWA/exec", {
+  method: "POST",
+  headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  body: formData.toString(),
+});
 
-    const result = await response.json();
+7
+    let result;
+    try {
+      result = await response.json();
+    } catch (err) {
+      throw new Error("Invalid JSON response (check if Apps Script is public)");
+    }
 
     if (result.result === "success") {
       messageBox.textContent = "✅ Your message has been sent successfully!";
@@ -128,6 +134,7 @@ form.addEventListener("submit", async (e) => {
       messageBox.textContent = "❌ Something went wrong. Please try again.";
       messageBox.classList.add("error");
     }
+
   } catch (err) {
     console.error(err);
     messageBox.textContent = "❌ Something went wrong. Please try again later.";
@@ -139,6 +146,7 @@ form.addEventListener("submit", async (e) => {
   }
 });
 </script>
+
 
 
 
