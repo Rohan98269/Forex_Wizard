@@ -99,59 +99,68 @@
 </section>
 
 <script>
-const form = document.getElementById("contactForm");
-const messageBox = document.getElementById("formMessage");
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  const messageBox = document.getElementById("formMessage");
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault(); // ✅ stop native submission (critical fix)
+  if (!form) return;
 
-  const submitBtn = form.querySelector(".send-btn");
-  submitBtn.disabled = true;
-  messageBox.style.display = "none";
-  messageBox.className = "message-box";
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault(); // critical — stop native form submit
 
-  // Collect form data
-  const formData = new FormData(form);
+    const submitBtn = form.querySelector(".send-btn");
+    submitBtn.disabled = true;
+    messageBox.style.display = "none";
+    messageBox.className = "message-box";
 
-  try {
-    // ✅ Use fetch with POST (Apps Script accepts this format)
-    const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbxvyrGLCTDkmGIQun5XzI-iePjR19QW5Pov27y9KS1mGzs90pv9MRAeGyf3F3lHulNI/exec",
-      {
-        method: "POST",
-        body: formData, // ✅ send as FormData, not URL encoded
-      }
-    );
+    // Use FormData (browser will send multipart/form-data)
+    const formData = new FormData(form);
 
-    // Try to parse JSON safely
-    let result;
     try {
-      result = await response.json();
-    } catch {
-      throw new Error("Invalid JSON response from Apps Script");
-    }
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbydygjA7drZQYlUNX2idNK7sbJv-KfjN1qiSF9lB8Ne-itfde0RBXNGxnUxPKFVJNP9cw/exec",
+        {
+          method: "POST",
+          body: formData, // DO NOT set custom headers here
+          credentials: "omit"
+        }
+      );
 
-    // ✅ Display message
-    if (result.result === "success") {
-      messageBox.textContent = "✅ Your message has been sent successfully!";
-      messageBox.classList.add("success");
-    } else {
-      messageBox.textContent = "❌ Something went wrong. Please try again.";
+      // Read raw text first for robust debugging
+      const raw = await response.text();
+
+      // Try to parse JSON
+      let result;
+      try {
+        result = JSON.parse(raw);
+      } catch (parseErr) {
+        console.error("Raw Apps Script response:", raw);
+        throw new Error("Invalid JSON response from Apps Script");
+      }
+
+      if (result && result.result === "success") {
+        messageBox.textContent = "✅ Your message has been sent successfully!";
+        messageBox.classList.add("success");
+      } else {
+        messageBox.textContent = "❌ Something went wrong. Please try again.";
+        messageBox.classList.add("error");
+      }
+
+    } catch (err) {
+      console.error(err);
+      messageBox.textContent =
+        "❌ Network or server error. Please try again later.";
       messageBox.classList.add("error");
+    } finally {
+      messageBox.style.display = "block";
+      const submitBtn = form.querySelector(".send-btn");
+      if (submitBtn) submitBtn.disabled = false;
+      form.reset();
     }
-
-  } catch (err) {
-    console.error(err);
-    messageBox.textContent =
-      "❌ Network or server error. Please try again later.";
-    messageBox.classList.add("error");
-  } finally {
-    messageBox.style.display = "block";
-    submitBtn.disabled = false;
-    form.reset();
-  }
+  });
 });
 </script>
+
 
 
 
